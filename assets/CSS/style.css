@@ -1,0 +1,14 @@
+.jumbotron {
+    text-align: center;
+
+}
+
+#trains th,
+    td {
+      display: inline-block;
+      width: 20%;
+      
+    }
+#train-container {
+    width: 80%;
+}
