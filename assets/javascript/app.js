@@ -19,7 +19,7 @@ var config = {
   // Grabs what the user inputs into each user field
   var TrainName = $("#train-name-input").val().trim();
   var Destination = $("#destination-input").val().trim();
-  var TrainTime = moment($("#time-input").val().trim(), "MM/DD/YYYY").format("X");
+  var TrainTime = $("#time-input").val().trim();
   var Frequency = $("#frequency-input").val().trim();
 
   
@@ -46,7 +46,7 @@ var config = {
     // Clears all of the text boxes
     $("#train-name-input").val("");
     $("#destination-input").val("");
-    $("#time-input").val("");S
+    $("#time-input").val("");
     $("#frequency-input").val("");
 });
 
@@ -56,9 +56,9 @@ database.ref().on("child_added", function(childSnapshot) {
   
     // Creates a variable for each 
     var TrainName = childSnapshot.val().name;
-    var Destination = childSnapshot.val().role;
-    var TrainTime = childSnapshot.val().start;
-    var Frequency = childSnapshot.val().rate;
+    var Destination = childSnapshot.val().place;
+    var TrainTime = childSnapshot.val().time;
+    var Frequency = childSnapshot.val().frequency;
   
     // console logs
     console.log(TrainName);
@@ -66,16 +66,32 @@ database.ref().on("child_added", function(childSnapshot) {
     console.log(TrainTime);
     console.log(Frequency);
 
-    var NextTrain =
-    var MinutesAway =
+    var Format = "hh:mm";
+    var convertTime = moment(TrainTime, Format);
+
+    // Difference between the current time and first train time
+    var Timedifference =  convertTime.diff(moment(), "minutes");
+    console.log("Difference in time: " + Timedifference);
+
+     // remainder 
+     var Remainder = Timedifference % Frequency;
+     console.log(Remainder);
+
+     // Time the next train is set to arrive
+    var NextTrainTime = moment().add(MinutesAway, "minutes");
+    console.log("Arival Time: " + moment(NextTrainTime).format("hh:mm"));
+    // Setting a variable equal to how many minutes away the next train is; determined by subtracting how often the train comes (frequency) 
+    // from the remainder
+    var MinutesAway = Frequency - Remainder;
+    console.log("Minutes until the next train: " + MinutesAway);
 
     // Creates the new row with the newly added train
   var newRow = $("<tr>").append(
     $("<td>").text(TrainName),
     $("<td>").text(Destination),
-    $("<td>").text(Frequency),
-    $("<td>").text(),
-    $("<td>").text(),
+    $("<td>").text("every "+ Frequency + " minutes"),
+    $("<td>").text(NextTrainTime),
+    $("<td>").text(MinutesAway + " minutes away"),
    
   );
 
