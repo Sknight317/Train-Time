@@ -50,7 +50,7 @@ var config = {
     $("#frequency-input").val("");
 });
 
-// 
+// Firebase event for adding a train to the database
 database.ref().on("child_added", function(childSnapshot) {
     console.log(childSnapshot.val());
   
@@ -66,31 +66,45 @@ database.ref().on("child_added", function(childSnapshot) {
     console.log(TrainTime);
     console.log(Frequency);
 
-    var Format = "hh:mm";
-    var convertTime = moment(TrainTime, Format);
+    // Converting the user input first train time to the proper format
+    var Format = "HH:mm";
 
+    // Subtracting one year from the train time to make sure it comes before the current time
+    var convertTime = moment(TrainTime, Format).subtract(1, "years");
+    console.log(convertTime);
+    // Creating a new variable and setting it equal to the proper time format found in the object
+    var NewTime = convertTime._d; 
+    console.log(NewTime);
+
+    // Setting a variable equal to the current time and changing it to the proper format
+    var currentTime = moment();
+    console.log("Current Time: " + moment(currentTime).format("hh:mm A")); 
+    
     // Difference between the current time and first train time
-    var Timedifference =  convertTime.diff(moment(), "minutes");
-    console.log("Difference in time: " + Timedifference);
+    var Timedifference =  moment().diff(moment(NewTime), "minutes");
+    console.log("Difference in Time: " + Timedifference);
 
      // remainder 
      var Remainder = Timedifference % Frequency;
      console.log(Remainder);
 
-     // Time the next train is set to arrive
-    var NextTrainTime = moment().add(MinutesAway, "minutes");
-    console.log("Arival Time: " + moment(NextTrainTime).format("hh:mm"));
     // Setting a variable equal to how many minutes away the next train is; determined by subtracting how often the train comes (frequency) 
     // from the remainder
     var MinutesAway = Frequency - Remainder;
-    console.log("Minutes until the next train: " + MinutesAway);
+    console.log("Minutes until the next train: " + MinutesAway);  
+    
+    // Time the next train is set to arrive
+    var NextTrainTime = moment().add(MinutesAway, "minutes");
+    console.log("Arival Time: " + moment(NextTrainTime).format("hh:mm A"));
+    
+    
 
     // Creates the new row with the newly added train
   var newRow = $("<tr>").append(
     $("<td>").text(TrainName),
     $("<td>").text(Destination),
     $("<td>").text("every "+ Frequency + " minutes"),
-    $("<td>").text(NextTrainTime),
+    $("<td>").text(NextTrainTime.format("hh:mm A")),
     $("<td>").text(MinutesAway + " minutes away"),
    
   );
