@@ -1,11 +1,21 @@
 body {
     background-color: rgb(207, 202, 202);
+     background-image: url("../images/pexels-photo-258455.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center;
 }
 
 .jumbotron {
     text-align: center;
     font-family: 'Oldenburg', cursive;
-    font-weight: 900;
+    padding: 0;
+    width: 30%;
+   margin: 10px auto;
+    background-color: black;
+    height: 130px;
+    border: 2px dotted white;
+position:relative;
 }
 
 #trains th,
@@ -15,24 +25,212 @@ body {
       
     }
 #train-container {
-    width: 80%;
+    width: 900px;
     margin-top: 20px;
     border-radius: 15px;
 }
-.train-image {
-    background-image: url("../images/pexels-photo-258455.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover; 
-    height: 15%;
-    border-radius: 15px;
-    background-position: center;
-    margin: 20px 0px 20px 0px auto;
-    color: white;
-}
+
 
 .card-header {
     font-size: 30px;
     text-align: center;
-    font-family: 'Oldenburg', cursive;
+    font-family: 'Gugi', cursive;
+    width: 60%;
+    padding: 0;
+    margin: 0 auto;
+    border: 2px dotted white;
     
 }
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: table;
+  
+  
+}
+
+@font-face {
+  font-family: neon;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+  
+}
+
+.container {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.neon {
+  font-family: neon;
+  color: #FB4264;
+  font-size: 5vw;
+  /* line-height: 9vw; */
+  text-shadow: 0 0 3vw #F40A35;
+  text-align: center;
+  position: absolute;
+  top: 15%;
+  right: 30%;
+  /* font-family: 'Oldenburg', cursive; */
+  
+}
+
+.flux {
+  font-family: neon;
+  color: #426DFB;
+  font-size: 5vw;
+  /* line-height: 9vw; */
+  text-shadow: 0 0 3vw #2356FF;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  right: 30%;
+  /* font-family: 'Oldenburg', cursive; */
+  
+}
+
+.neon {
+  animation: neon 1s ease infinite;
+  -moz-animation: neon 1s ease infinite;
+  -webkit-animation: neon 1s ease infinite;
+}
+
+@keyframes neon {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+    color: #FED128;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+    color: #806914;
+  }
+}
+
+.flux {
+  animation: flux 2s linear infinite;
+  -moz-animation: flux 2s linear infinite;
+  -webkit-animation: flux 2s linear infinite;
+  -o-animation: flux 2s linear infinite;
+}
+
+@keyframes flux {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+    color: #28D7FE;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+    color: #146C80;
+  }
+}
+div.card-header {
+  background-color: black;
+  color: white;
+  /* border-radius: 13em/3em  !important; 
+-moz-border-radius: 13em/3em;
+webkit-border-radius: 13em/3em; */
+}
+div.card.mb-4 {
+border-radius: 13em/3em !important; 
+-moz-border-radius: 13em/3em;
+webkit-border-radius: 13em/3em;
+webkit-box-shadow: 2px 2px 6px rgba(0,0,0,0.6) !important;
+} 
+a.button::before {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-box-shadow: #959595 0 2px 5px;
+  -moz-box-shadow: #959595 0 2px 5px;
+  border-radius: 3px;
+  box-shadow: #959595 0 2px 5px;
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  padding: 2px 0 0;
+  position: absolute;
+  top: 0;
+  width: 100%; }
+  
+a.button:active::before { padding: 1px 0 0; }
+
+/**
+* Grey
+*/
+button {
+  -moz-box-shadow: inset 0 0 0 1px #63ad0d;
+  -webkit-box-shadow: inset 0 0 0 1px #63ad0d;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  background: #eee;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#eee), to(#e2e2e2));
+  background: -moz-linear-gradient(#eee, #e2e2e2);
+  background: linear-gradient(#eee, #e2e2e2);
+  border: solid 1px #d0d0d0;
+  border-bottom: solid 3px #b2b1b1;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1px #f5f5f5;
+  color: #555;
+  display: inline-block;
+  font: bold 12px Arial, Helvetica, Clean, sans-serif;
+  margin: 0 25px 25px 0;
+  padding: 10px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #fafafa; }
+  
+button:hover {
+  background: #e4e4e4;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#e4e4e4), to(#ededed));
+  background: -moz-linear-gradient(#e4e4e4, #ededed);
+  background: linear-gradient(#e4e4e4, #ededed);
+  border: solid 1px #c2c2c2;
+  border-bottom: solid 3px #b2b1b1;
+  box-shadow: inset 0 0 0 1px #efefef; }
+  
+button:active {
+  background: #dfdfdf;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#dfdfdf), to(#e3e3e3));
+  background: -moz-linear-gradient(#dfdfdf, #e3e3e3);
+  background: linear-gradient(#dfdfdf, #e3e3e3);
+  border: solid 1px #959595;
+  box-shadow: inset 0 10px 15px 0 #c4c4c4;
+  top:2px;}
+
+  button {
+    background: #656565;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#656565), to(#444));
+    background: -moz-linear-gradient(#656565, #444);
+    background: linear-gradient(#656565, #444);
+    border: solid 1px #535353;
+    border-bottom: solid 3px #414141;
+    box-shadow: inset 0 0 0 1px #939393;
+    color: #fff;
+    text-shadow: 0 1px 0 #2f2f2f; }
+    
+button:hover {
+    background: #4c4c4c;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#4c4c4c), to(#565656));
+    background: -moz-linear-gradient(#4c4c4c, #565656);
+    background: linear-gradient(#4c4c4c, #565656);
+    border: solid 1px #464646;
+    border-bottom: solid 3px #414141;
+    box-shadow: inset 0 0 0 1px #818181; 
+  }
+    
+button:active {
+    background: #474747;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#474747), to(#444));
+    background: -moz-linear-gradient(#474747, #444);
+    background: linear-gradient(#474747, #444);
+    border: solid 1px #2f2f2f;
+    box-shadow: inset 0 10px 15px 0 #3e3e3e;
+  outline:none; 
+}
+    
