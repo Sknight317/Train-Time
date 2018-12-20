@@ -238,5 +238,11 @@ button:active {
 #train-div {
   text-align: center;
 }
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+ .neon, .flux {
+  font-size:30vw;
+ }
+}
 
     
