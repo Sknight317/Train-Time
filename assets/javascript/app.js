@@ -18,10 +18,31 @@ var config = {
 
   // Grabs what the user inputs into each user field
   var TrainName = $("#train-name-input").val().trim();
+  if(TrainName=== "") {
+    alert("Please enter a valid Train Name");
+    return
+  }
   var Destination = $("#destination-input").val().trim();
+  if(Destination=== "") {
+    alert("Please enter a valid Destination");
+    return
+  }
   var TrainTime = $("#time-input").val().trim();
+  if(TrainTime=== "") {
+    alert("Please enter a valid Train Time");
+    return
+  }
   var Frequency = $("#frequency-input").val().trim();
-
+  if(Frequency=== "") {
+    alert("Please enter a valid Frequency");
+    return
+  }
+  //If frequency is not a number
+  if(isNaN(Frequency)){
+    alert("Please enter a number for Frequency");
+    //Stop the function
+    return
+  }
   
 
   //local "temporary" object for holding train data
@@ -112,3 +133,4 @@ database.ref().on("child_added", function(childSnapshot) {
   // Append the new row to the table
   $("#trains > tbody").append(newRow);
 });
+
